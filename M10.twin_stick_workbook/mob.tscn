@@ -1,13 +1,17 @@
-[gd_scene load_steps=5 format=3 uid="uid://bspwo5vam5de"]
+[gd_scene load_steps=6 format=3 uid="uid://bspwo5vam5de"]
 
 [ext_resource type="Texture2D" uid="uid://nohjoiah3jgr" path="res://mobs/sword_inactive.png" id="1_7iak3"]
 [ext_resource type="Script" path="res://mob.gd" id="1_urjbd"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_khii5"]
-radius = 404.278
+radius = 650.054
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_64m8j"]
-radius = 23.0
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gmajw"]
+radius = 22.0
+height = 132.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_mriun"]
+radius = 22.0
 height = 122.0
 
 [node name="Mob" type="CharacterBody2D"]
@@ -23,6 +27,12 @@ shape = SubResource("CircleShape2D_khii5")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_7iak3")
 
+[node name="HitBox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_gmajw")
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-rotation = -1.5708
-shape = SubResource("CapsuleShape2D_64m8j")
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_mriun")
