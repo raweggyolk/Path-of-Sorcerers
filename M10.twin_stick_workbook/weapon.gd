@@ -13,6 +13,7 @@ func _ready() -> void:
 func _physics_process(_delta: float) -> void:
 	if Input.is_action_pressed("shoot"):
 		shoot()
+		
 func shoot() -> void:
 	var bullet: Node = bullet_scene.instantiate()
 	get_tree().current_scene.add_child(bullet)

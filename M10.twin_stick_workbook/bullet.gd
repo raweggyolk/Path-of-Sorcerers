@@ -4,6 +4,14 @@ extends Area2D
 
 var max_range := 1000.0
 var _travelled_distance := 0.0
+var damage := 1
+
+func _ready() -> void:
+	body_entered.connect(func (body: Node) -> void:
+		if body is Mob:
+			body.health -= damage
+	)
+	
 
 func _physics_process(delta: float) -> void:
 	var distance := speed * delta
@@ -19,3 +27,7 @@ func _physics_process(delta: float) -> void:
 	
 func _destroy() -> void:
 	queue_free()
+
+
+func _on_body_entered(body: Node2D) -> void:
+	_destroy()
