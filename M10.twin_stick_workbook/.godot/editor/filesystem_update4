@@ -8,3 +8,7 @@ res://bullet.tscn
 res://weapon.tscn
 res://mob.tscn
 res://mob.gd
+res://item.tscn
+res://item.gd
+res://item.tres
+res://ItemHealing.tres

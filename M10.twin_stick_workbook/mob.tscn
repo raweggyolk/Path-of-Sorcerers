@@ -11,7 +11,7 @@ radius = 22.0
 height = 132.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_mriun"]
-radius = 22.0
+radius = 15.0
 height = 122.0
 
 [node name="Mob" type="CharacterBody2D"]
@@ -36,3 +36,5 @@ shape = SubResource("CapsuleShape2D_gmajw")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_mriun")
+
+[node name="DamageTimer" type="Timer" parent="."]
