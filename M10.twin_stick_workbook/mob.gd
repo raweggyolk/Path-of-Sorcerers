@@ -3,13 +3,13 @@ class_name Mob extends CharacterBody2D
 @export var max_speed := 300.0
 @export var acceleration := 700.0
 @export var health := 100: set = set_health
-var damage := 10
+var damage := 20
 
 var _player: Player = null
 
-@onready var _detection_area: Area2D = $DetectionArea
-@onready var _hit_box: Area2D = $HitBox
-@onready var _damage_timer: Timer = $DamageTimer
+@onready var _detection_area: Area2D = %DetectionArea
+@onready var _hit_box: Area2D = %HitBox
+@onready var _damage_timer: Timer = %DamageTimer
 
 
 

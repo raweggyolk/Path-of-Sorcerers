@@ -1,8 +1,10 @@
-Timer
-Area2D
+AnimationPlayer
 CollisionShape2D
-ProgressBar
+AudioStreamPlayer2D
 Sprite2D
+Area2D
+Timer
+ProgressBar
 CharacterBody2D
 Marker2D
 Node2D

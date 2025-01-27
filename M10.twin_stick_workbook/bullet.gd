@@ -4,12 +4,13 @@ extends Area2D
 
 var max_range := 1000.0
 var _travelled_distance := 0.0
-var damage := 1
+var damage := 0.5
 
 func _ready() -> void:
 	body_entered.connect(func (body: Node) -> void:
 		if body is Mob:
 			body.health -= damage
+			print(body.health)
 	)
 	
 
