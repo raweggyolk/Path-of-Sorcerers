@@ -1,0 +1,131 @@
+[gd_scene load_steps=13 format=3 uid="uid://c8aujan3xl5un"]
+
+[ext_resource type="Script" path="res://item.gd" id="1_qygs2"]
+[ext_resource type="Script" path="res://ItemHealing.gd" id="2_bok2s"]
+[ext_resource type="Texture2D" uid="uid://poruqosc7ay8" path="res://pickups/chest/chest_bottom.png" id="2_p3iac"]
+[ext_resource type="Texture2D" uid="uid://w0omlm2d66nt" path="res://pickups/chest/chest_top.png" id="3_svuxr"]
+[ext_resource type="AudioStream" uid="uid://c2woejhi871h1" path="res://pickups/pickup.wav" id="3_td3kr"]
+[ext_resource type="Texture2D" uid="uid://be8lmb157qflx" path="res://pickups/pickup_health.png" id="4_l3v1t"]
+
+[sub_resource type="GDScript" id="GDScript_6e57n"]
+script/source = "@tool
+class_name Chest extends Area2D
+
+@export var possible_items: Array[Item] = []
+var is_player_near := false
+@onready var _animation_player := $AnimationPlayer as AnimationPlayer
+
+
+func _ready() -> void:
+	body_entered.connect(func (body: Node) -> void:
+		is_player_near = true
+	)
+	body_exited.connect(func (body: Node) -> void:
+		is_player_near = false
+	)
+
+func _unhandled_input(event: InputEvent) -> void:
+	if is_player_near and event.is_action_pressed(\"interact\"):
+		_animation_player.play(\"open\")
+		create_pickup()
+		get_viewport().set_input_as_handled()
+		set_deferred(\"monitoring\", false)
+
+func create_pickup() -> void:
+	if possible_items == []:
+		return
+
+	var item: Item = possible_items.pick_random()
+	var pickup: Pickup = preload(\"pickup.tscn\").instantiate()
+	pickup.item = item
+	add_child(pickup)
+
+	var random_angle := randf_range(0.0, 2.0 * PI)
+	var random_direction := Vector2(1.0, 0.0).rotated(random_angle)
+	var land_position := random_direction * randf_range(60.0, 120.0)
+
+	const FLIGHT_TIME := 0.4
+	const HALF_FLIGHT_TIME := FLIGHT_TIME / 2.0
+
+	var tween := create_tween()
+	tween.set_parallel()
+	pickup.scale = Vector2(0.25, 0.25)
+	tween.tween_property(pickup, \"scale\", Vector2(1.0, 1.0), HALF_FLIGHT_TIME)
+	tween.tween_property(pickup, \"position:x\", land_position.x, FLIGHT_TIME)
+	tween = create_tween()
+	tween.set_trans(Tween.TRANS_QUAD)
+	tween.set_ease(Tween.EASE_OUT)
+	var jump_height := randf_range(30.0, 80.0)
+	tween.tween_property(pickup, \"position:y\", land_position.y - jump_height, HALF_FLIGHT_TIME)
+	tween.set_ease(Tween.EASE_IN)
+	tween.tween_property(pickup, \"position:y\", land_position.y, HALF_FLIGHT_TIME)
+"
+
+[sub_resource type="Resource" id="Resource_cal1e"]
+script = ExtResource("2_bok2s")
+healing_amount = 100
+display_name = ""
+texture = ExtResource("4_l3v1t")
+sound_on_pickup = ExtResource("3_td3kr")
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ipm1x"]
+radius = 73.0069
+
+[sub_resource type="Animation" id="Animation_v0j8o"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasGroup/Top:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -40)]
+}
+
+[sub_resource type="Animation" id="Animation_diubl"]
+resource_name = "open"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasGroup/Top:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, -40), Vector2(51, -101), Vector2(108, 39)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0ph2l"]
+_data = {
+"RESET": SubResource("Animation_v0j8o"),
+"open": SubResource("Animation_diubl")
+}
+
+[node name="ChestTest" type="Area2D"]
+script = SubResource("GDScript_6e57n")
+possible_items = Array[ExtResource("1_qygs2")]([SubResource("Resource_cal1e")])
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -28)
+shape = SubResource("CircleShape2D_ipm1x")
+
+[node name="CanvasGroup" type="CanvasGroup" parent="."]
+
+[node name="Bottom" type="Sprite2D" parent="CanvasGroup"]
+position = Vector2(-1, -37)
+texture = ExtResource("2_p3iac")
+
+[node name="Top" type="Sprite2D" parent="CanvasGroup"]
+position = Vector2(0, -40)
+texture = ExtResource("3_svuxr")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_0ph2l")
+}

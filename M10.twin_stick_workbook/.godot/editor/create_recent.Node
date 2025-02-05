@@ -1,4 +1,6 @@
 AnimationPlayer
+AnimationTree
+CanvasGroup
 CollisionShape2D
 AudioStreamPlayer2D
 Sprite2D
