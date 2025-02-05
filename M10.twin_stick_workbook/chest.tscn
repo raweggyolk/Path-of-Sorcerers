@@ -69,7 +69,7 @@ texture = ExtResource("4_l3v1t")
 sound_on_pickup = ExtResource("3_td3kr")
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ipm1x"]
-radius = 73.0069
+radius = 110.018
 
 [sub_resource type="Animation" id="Animation_v0j8o"]
 length = 0.001

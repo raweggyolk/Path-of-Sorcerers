@@ -1,6 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://bqm4f1kfhyu3p"]
+[gd_scene load_steps=14 format=3 uid="uid://bqm4f1kfhyu3p"]
 
 [ext_resource type="PackedScene" uid="uid://cu2rb5dl4ljte" path="res://levels/rooms/room_a.tscn" id="1_nvmh0"]
+[ext_resource type="PackedScene" uid="uid://wdey00p3syru" path="res://levels/background/background_blue_sky.tscn" id="1_v64ng"]
+[ext_resource type="PackedScene" path="res://levels/background/loop_clouds.tscn" id="2_h56qx"]
 [ext_resource type="PackedScene" uid="uid://2vfl30qvq3hm" path="res://player.tscn" id="2_u3ttb"]
 [ext_resource type="PackedScene" uid="uid://bspwo5vam5de" path="res://mob.tscn" id="3_echao"]
 [ext_resource type="PackedScene" uid="uid://ci8su75x6odei" path="res://pickup.tscn" id="4_5ciqb"]
@@ -8,6 +10,8 @@
 [ext_resource type="AudioStream" uid="uid://c2woejhi871h1" path="res://pickups/pickup.wav" id="7_da22c"]
 [ext_resource type="PackedScene" uid="uid://c8aujan3xl5un" path="res://chest.tscn" id="8_lnjgm"]
 [ext_resource type="Texture2D" uid="uid://be8lmb157qflx" path="res://pickups/pickup_health.png" id="8_v4tcf"]
+[ext_resource type="PackedScene" uid="uid://dgayuh42w4v6u" path="res://levels/rooms/room_b.tscn" id="10_3kjq0"]
+[ext_resource type="TileSet" uid="uid://crkgfdw1y80hc" path="res://levels/rooms/tilesets/tileset_bridges.tres" id="12_2bes2"]
 
 [sub_resource type="Resource" id="Resource_kpe0n"]
 script = ExtResource("5_n2u0x")
@@ -18,20 +22,38 @@ sound_on_pickup = ExtResource("7_da22c")
 
 [node name="Game" type="Node2D"]
 
+[node name="BackgroundBlueSky" parent="." instance=ExtResource("1_v64ng")]
+
+[node name="LoopClouds" parent="." instance=ExtResource("2_h56qx")]
+
 [node name="RoomA" parent="." instance=ExtResource("1_nvmh0")]
 
-[node name="ChestTest" parent="." instance=ExtResource("8_lnjgm")]
-position = Vector2(810, 355)
+[node name="ChestTest" parent="RoomA" instance=ExtResource("8_lnjgm")]
+position = Vector2(809.593, 355.928)
+rotation = 0.00114604
+
+[node name="Mob" parent="RoomA" instance=ExtResource("3_echao")]
+position = Vector2(455.624, 328.522)
+rotation = 0.00114604
+
+[node name="Mob2" parent="RoomA" instance=ExtResource("3_echao")]
+position = Vector2(1291.68, 1148.48)
+rotation = 0.00114604
+
+[node name="Pickup" parent="RoomA" instance=ExtResource("4_5ciqb")]
+position = Vector2(980.39, 533.124)
+rotation = 0.00114604
+item = SubResource("Resource_kpe0n")
+
+[node name="RoomB" parent="." instance=ExtResource("10_3kjq0")]
+position = Vector2(2110, 17)
+rotation = -0.00114604
 
 [node name="Player" parent="." instance=ExtResource("2_u3ttb")]
+y_sort_enabled = true
 position = Vector2(731, 695)
 
-[node name="Mob" parent="." instance=ExtResource("3_echao")]
-position = Vector2(456, 328)
-
-[node name="Mob2" parent="." instance=ExtResource("3_echao")]
-position = Vector2(1293, 1147)
-
-[node name="Pickup" parent="." instance=ExtResource("4_5ciqb")]
-position = Vector2(981, 532)
-item = SubResource("Resource_kpe0n")
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource("12_2bes2")
+format = 2
+layer_0/tile_data = PackedInt32Array(262155, 327680, 1, 262156, 327680, 1, 262157, 327680, 1, 262158, 327680, 1, 262159, 327680, 1, 262160, 327680, 1)

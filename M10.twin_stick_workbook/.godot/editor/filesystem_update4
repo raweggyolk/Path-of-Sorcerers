@@ -7,3 +7,4 @@ res://pickup.gd
 res://game.tscn
 res://pickup.tscn
 res://player.tscn
+res://levels/rooms/tilesets/tileset_bridges.tres
