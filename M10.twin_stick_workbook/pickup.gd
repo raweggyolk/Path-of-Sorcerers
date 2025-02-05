@@ -10,6 +10,7 @@ func _ready() -> void:
 	body_entered.connect(func (body: Node2D) -> void:
 		if body is Player:
 			item.use(body)
+			set_deferred("monitoring", false)
 			audio_stream_player_2d.play()
 			queue_free()
 	)
