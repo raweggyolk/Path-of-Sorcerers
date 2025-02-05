@@ -1,0 +1,46 @@
+[gd_scene load_steps=12 format=3 uid="uid://cfq5joxa6wqdk"]
+
+[ext_resource type="Script" path="res://chest.gd" id="1_l2537"]
+[ext_resource type="Script" path="res://item.gd" id="2_l0274"]
+[ext_resource type="Texture2D" uid="uid://dub7cda3qxho2" path="res://pickups/chest/chest_bottom.png" id="2_p3iac"]
+[ext_resource type="Texture2D" uid="uid://bfj2ayjhou4bv" path="res://pickups/chest/chest_top.png" id="3_svuxr"]
+[ext_resource type="Script" path="res://ItemHealing.gd" id="3_w16th"]
+[ext_resource type="AudioStream" uid="uid://o3ra7o263286" path="res://pickups/pickup_health.wav" id="4_d2c3h"]
+[ext_resource type="Texture2D" uid="uid://be8lmb157qflx" path="res://pickups/pickup_health.png" id="5_ntnja"]
+
+[sub_resource type="Resource" id="Resource_qdlyo"]
+script = ExtResource("3_w16th")
+healing_amount = 100
+display_name = ""
+texture = ExtResource("5_ntnja")
+sound_on_pickup = ExtResource("4_d2c3h")
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ipm1x"]
+radius = 79.5016
+
+[sub_resource type="Animation" id="Animation_wn8pw"]
+resource_name = "open"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ikfs7"]
+_data = {
+"open": SubResource("Animation_wn8pw")
+}
+
+[node name="ChestTest" type="Area2D"]
+script = ExtResource("1_l2537")
+possible_items = Array[ExtResource("2_l0274")]([SubResource("Resource_qdlyo")])
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_p3iac")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+texture = ExtResource("3_svuxr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, 6.5)
+shape = SubResource("CircleShape2D_ipm1x")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_ikfs7")
+}
