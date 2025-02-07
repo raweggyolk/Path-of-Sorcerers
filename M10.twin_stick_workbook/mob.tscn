@@ -1,18 +1,16 @@
 [gd_scene load_steps=6 format=3 uid="uid://bspwo5vam5de"]
 
-[ext_resource type="Texture2D" uid="uid://nohjoiah3jgr" path="res://mobs/sword_inactive.png" id="1_7iak3"]
 [ext_resource type="Script" path="res://mob.gd" id="1_urjbd"]
+[ext_resource type="Texture2D" uid="uid://3ax8777nojij" path="res://Adobe Express - file.png" id="2_j6ola"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_khii5"]
 radius = 650.054
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gmajw"]
-radius = 22.0
-height = 132.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kiukh"]
+size = Vector2(149, 125.001)
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_mriun"]
-radius = 15.0
-height = 122.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3b4r2"]
+size = Vector2(143, 119.001)
 
 [node name="Mob" type="CharacterBody2D"]
 motion_mode = 1
@@ -26,18 +24,22 @@ visibility_layer = 2
 shape = SubResource("CircleShape2D_khii5")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_7iak3")
+position = Vector2(0, 9.53674e-07)
+scale = Vector2(0.106614, 0.089594)
+texture = ExtResource("2_j6ola")
 
 [node name="HitBox" type="Area2D" parent="."]
 unique_name_in_owner = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
+position = Vector2(0.5, 0.499998)
 rotation = 1.5708
-shape = SubResource("CapsuleShape2D_gmajw")
+shape = SubResource("RectangleShape2D_kiukh")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.499998, 0.499998)
 rotation = 1.5708
-shape = SubResource("CapsuleShape2D_mriun")
+shape = SubResource("RectangleShape2D_3b4r2")
 
 [node name="DamageTimer" type="Timer" parent="."]
 unique_name_in_owner = true

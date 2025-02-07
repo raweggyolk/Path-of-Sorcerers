@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://bqm4f1kfhyu3p"]
+[gd_scene load_steps=16 format=3 uid="uid://bqm4f1kfhyu3p"]
 
 [ext_resource type="PackedScene" uid="uid://cu2rb5dl4ljte" path="res://levels/rooms/room_a.tscn" id="1_nvmh0"]
 [ext_resource type="PackedScene" uid="uid://wdey00p3syru" path="res://levels/background/background_blue_sky.tscn" id="1_v64ng"]
@@ -12,6 +12,8 @@
 [ext_resource type="Texture2D" uid="uid://be8lmb157qflx" path="res://pickups/pickup_health.png" id="8_v4tcf"]
 [ext_resource type="PackedScene" uid="uid://dgayuh42w4v6u" path="res://levels/rooms/room_b.tscn" id="10_3kjq0"]
 [ext_resource type="TileSet" uid="uid://crkgfdw1y80hc" path="res://levels/rooms/tilesets/tileset_bridges.tres" id="12_2bes2"]
+[ext_resource type="PackedScene" uid="uid://cq0mmphkbrvmm" path="res://levels/rooms/room_c.tscn" id="12_klsqa"]
+[ext_resource type="PackedScene" uid="uid://diw0kp1e3livt" path="res://levels/rooms/room_d.tscn" id="13_h4u3t"]
 
 [sub_resource type="Resource" id="Resource_kpe0n"]
 script = ExtResource("5_n2u0x")
@@ -26,34 +28,66 @@ sound_on_pickup = ExtResource("7_da22c")
 
 [node name="LoopClouds" parent="." instance=ExtResource("2_h56qx")]
 
-[node name="RoomA" parent="." instance=ExtResource("1_nvmh0")]
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource("12_2bes2")
+format = 2
+layer_0/tile_data = PackedInt32Array(262155, 327680, 1, 262156, 327680, 1, 262157, 327680, 1, 262158, 327680, 1, 262159, 327680, 1, 262160, 327680, 1, 655366, 0, 1, 720902, 0, 1, 786438, 0, 1, 851974, 0, 1, 917510, 0, 1, 983046, 0, 0, 983047, 196608, 1, 983048, 196608, 1, 983049, 196608, 1, 983050, 196608, 1, 983051, 131072, 0, 1048587, 65536, 1, 1114123, 65536, 1, -65512, 65536, 1, -131048, 65536, 1, -196584, 196608, 0, -196583, 196608, 1, -196582, 196608, 1, -196581, 196608, 1, -196580, 196608, 1, -196579, 196608, 1, -196578, 196608, 1, -196577, 196608, 1, -196576, 196608, 1, -196575, 196608, 1, -196574, 196608, 1, -196573, 196608, 1, -196572, 196608, 1, -196571, 131072, 0, -131035, 131072, 1, -65499, 131072, 1, 37, 131072, 1, 65573, 131072, 1, 131109, 131072, 1, 196645, 131072, 1, 262181, 131072, 1, 327717, 131072, 1, 393253, 131072, 1, 458789, 131072, 1)
 
-[node name="ChestTest" parent="RoomA" instance=ExtResource("8_lnjgm")]
+[node name="Rooms" type="Node2D" parent="."]
+
+[node name="RoomA" parent="Rooms" instance=ExtResource("1_nvmh0")]
+
+[node name="ChestTest" parent="Rooms/RoomA" instance=ExtResource("8_lnjgm")]
 position = Vector2(809.593, 355.928)
 rotation = 0.00114604
 
-[node name="Mob" parent="RoomA" instance=ExtResource("3_echao")]
+[node name="Mob" parent="Rooms/RoomA" instance=ExtResource("3_echao")]
 position = Vector2(455.624, 328.522)
 rotation = 0.00114604
 
-[node name="Mob2" parent="RoomA" instance=ExtResource("3_echao")]
+[node name="Mob2" parent="Rooms/RoomA" instance=ExtResource("3_echao")]
 position = Vector2(1291.68, 1148.48)
 rotation = 0.00114604
 
-[node name="Pickup" parent="RoomA" instance=ExtResource("4_5ciqb")]
+[node name="Pickup" parent="Rooms/RoomA" instance=ExtResource("4_5ciqb")]
 position = Vector2(980.39, 533.124)
 rotation = 0.00114604
 item = SubResource("Resource_kpe0n")
 
-[node name="RoomB" parent="." instance=ExtResource("10_3kjq0")]
-position = Vector2(2110, 17)
+[node name="RoomB" parent="Rooms" instance=ExtResource("10_3kjq0")]
+position = Vector2(2176, 0)
 rotation = -0.00114604
+
+[node name="RoomC" parent="Rooms" instance=ExtResource("12_klsqa")]
+position = Vector2(2685, 3629)
+rotation = -3.14159
+
+[node name="RoomD" parent="Rooms" instance=ExtResource("13_h4u3t")]
+position = Vector2(3961, 894)
 
 [node name="Player" parent="." instance=ExtResource("2_u3ttb")]
 y_sort_enabled = true
 position = Vector2(731, 695)
 
-[node name="TileMap" type="TileMap" parent="."]
-tile_set = ExtResource("12_2bes2")
-format = 2
-layer_0/tile_data = PackedInt32Array(262155, 327680, 1, 262156, 327680, 1, 262157, 327680, 1, 262158, 327680, 1, 262159, 327680, 1, 262160, 327680, 1)
+[node name="Borders" type="StaticBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Borders"]
+polygon = PackedVector2Array(0, 53, -7, 496, -147, 504, -143, 1015, -1, 1047, -7, 1278, 124, 1299, 126, 1420, 771, 1418, 772, 1220, 270, 1214, 256, 1088, 137, 1074, 127, 963, 17, 951, 4, 648, 142, 638, 249, 637, 247, 469, 125, 459, 128, 107, 626, 112, 643, -14, 1130, -11, 1164, 51, 1167, 127, 1396, 132, 1415, 488, 1543, 491, 1539, -5, 1292, 2, 1286, -129, 517, -142, 506, -15)
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Borders"]
+polygon = PackedVector2Array(910, 1257, 901, 1413, 1539, 1419, 1536, 659, 1410, 657, 1396, 1229)
+
+[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="Borders"]
+polygon = PackedVector2Array(2172, 651, 2041, 649, 2041, 1014, 3608, 1033, 3735, 852, 3730, 127, 3625, 120, 3582, 8, 3468, -40, 3452, -147, 3195, -147, 3201, -2, 3339, 4, 3344, 113, 3482, 136, 3501, 234, 3597, 264, 3599, 738, 3495, 789, 3448, 869, 3305, 886, 2173, 874)
+
+[node name="CollisionPolygon2D4" type="CollisionPolygon2D" parent="Borders"]
+polygon = PackedVector2Array(1535, 650, 2039, 654, 2032, 735, 1539, 737)
+
+[node name="CollisionPolygon2D5" type="CollisionPolygon2D" parent="Borders"]
+polygon = PackedVector2Array(1536, 491, 2166, 486, 2171, 272, 2164, 227, 2290, 240, 2301, 93, 2400, 102, 2430, -37, 3077, -15, 3079, -134, 2349, -143, 2054, 136)
+
+[node name="CollisionPolygon2D6" type="CollisionPolygon2D" parent="Borders"]
+polygon = PackedVector2Array(753, 1432, 753, 2068, 1369, 2068, 1375, 2198, 1236, 2224, 1248, 2727, 1318, 2756, 1638, 2758, 1641, 2852, 1516, 2852, 1522, 3392, 1649, 3400, 1646, 3647, 2424, 3652, 2447, 3593, 2438, 3403, 2560, 3395, 2563, 3070, 2441, 3098, 2444, 2592, 2328, 2583, 2328, 2306, 2215, 2306, 2184, 2184, 1545, 2196, 1547, 1887, 931, 1890, 917, 1432, 2413, 2128, 2648, 2716, 2673, 3757, 1480, 3751, 1284, 2877, 877, 2447, 594, 2000, 608, 1418)
+
+[node name="CollisionPolygon2D7" type="CollisionPolygon2D" parent="Borders"]
+polygon = PackedVector2Array(3051, -123, 3063, -402, 4894, -399, 4891, 854, 5380, 848, 5386, 1729, 4993, 1750, 4990, 2436, 3926, 2427, 3950, 1228, 4190, 1213, 4214, 863, 4705, 845, 4720, -222, 3225, -234, 3213, -147, 4316, 6, 3722, 1339, 3689, 2547, 5284, 2631, 5700, 908, 5041, 275, 4990, -525, 2895, -555)
