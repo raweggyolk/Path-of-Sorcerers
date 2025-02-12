@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://bcgf3p5mhspnn" path="res://levels/Adobe Express - file (2).png" id="2_6wf4f"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_khii5"]
-radius = 650.054
+radius = 841.117
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_yb46x"]
 radius = 61.0082
