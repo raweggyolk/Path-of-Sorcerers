@@ -11,3 +11,6 @@ res://mob.tscn
 res://mob2.tscn
 res://game.gd
 res://mob_2.gd
+res://mob3.tscn
+res://mob_3.gd
+res://bullet.gd

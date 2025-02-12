@@ -14,6 +14,9 @@ func _ready() -> void:
 		if body is Mob2:
 			body.health -= damage
 			print(body.health)
+		if body is Mob3:
+			body.health -= damage
+			print(body.health)
 	)
 	
 
