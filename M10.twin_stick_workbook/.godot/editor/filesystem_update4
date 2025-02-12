@@ -14,3 +14,5 @@ res://mob_2.gd
 res://mob3.tscn
 res://mob_3.gd
 res://bullet.gd
+res://end_screen.tscn
+res://end_screen.gd
