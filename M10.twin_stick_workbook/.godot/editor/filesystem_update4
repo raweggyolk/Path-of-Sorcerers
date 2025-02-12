@@ -9,3 +9,8 @@ res://pickup.tscn
 res://chest.tscn
 res://player.tscn
 res://mob.tscn
+res://mob2.tscn
+res://mob_2.gd
+res://bullet.gd
+res://levels/bridges.tscn
+res://levels/invisible_walls.tscn

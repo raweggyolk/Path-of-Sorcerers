@@ -1,0 +1,44 @@
+[gd_scene load_steps=6 format=3 uid="uid://cuuvf1atjrxma"]
+
+[ext_resource type="Script" path="res://mob_2.gd" id="1_fkdym"]
+[ext_resource type="Texture2D" uid="uid://b7l86ayrjpy6d" path="res://Adobe Express - file (1).png" id="2_y0c61"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_khii5"]
+radius = 650.054
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kiukh"]
+size = Vector2(177, 160.001)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3b4r2"]
+size = Vector2(169.999, 154.001)
+
+[node name="Mob" type="CharacterBody2D"]
+motion_mode = 1
+script = ExtResource("1_fkdym")
+
+[node name="DetectionArea" type="Area2D" parent="."]
+unique_name_in_owner = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea"]
+visibility_layer = 2
+shape = SubResource("CircleShape2D_khii5")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-0.999999, -1.5)
+scale = Vector2(0.493421, 0.413534)
+texture = ExtResource("2_y0c61")
+
+[node name="HitBox" type="Area2D" parent="."]
+unique_name_in_owner = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
+rotation = 1.5708
+shape = SubResource("RectangleShape2D_kiukh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(9.53674e-07, -0.999997)
+rotation = 1.5708
+shape = SubResource("RectangleShape2D_3b4r2")
+
+[node name="DamageTimer" type="Timer" parent="."]
+unique_name_in_owner = true
