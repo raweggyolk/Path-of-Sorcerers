@@ -13,3 +13,12 @@ func open() -> void:
 	var total_time_msec := end_time - start_time
 	var total_time_s := snappedf(total_time_msec / 1000.0, 0.1)
 	_time_label.text = "Time: " + str(total_time_s) + "s"
+
+
+func _on_button_pressed() -> void:
+	get_tree().paused = false
+	get_tree().reload_current_scene() # Replace with function body.
+	
+
+func _on_button_2_pressed() -> void:
+	get_tree().quit() # Replace with function body.
