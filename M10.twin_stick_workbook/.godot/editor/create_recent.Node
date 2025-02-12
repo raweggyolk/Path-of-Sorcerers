@@ -1,3 +1,4 @@
+AudioStreamPlayer2D
 Node2D
 Node
 CollisionPolygon2D
@@ -7,9 +8,7 @@ AnimationPlayer
 AnimationTree
 CanvasGroup
 CollisionShape2D
-AudioStreamPlayer2D
 Sprite2D
 Area2D
 Timer
 ProgressBar
-CharacterBody2D

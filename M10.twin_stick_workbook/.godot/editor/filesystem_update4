@@ -4,13 +4,10 @@ res://addons/gdpractice/assets/theme.tres
 res://levels/rooms/tilesets/floating_dungeon_tileset.tres
 res://levels/rooms/tilesets/tileset_invisible_walls.tres
 res://pickup.gd
-res://levels/rooms/tilesets/tileset_bridges.tres
 res://pickup.tscn
 res://chest.tscn
 res://player.tscn
 res://mob.tscn
 res://mob2.tscn
+res://game.gd
 res://mob_2.gd
-res://bullet.gd
-res://levels/bridges.tscn
-res://levels/invisible_walls.tscn

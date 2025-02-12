@@ -1,23 +1,24 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1739227000
+::res://::1739384135
 Adobe Express - file (1).png::CompressedTexture2D::4657230893637493545::1739227000::1739227000::1::::<><>::
 Adobe Express - file.png::CompressedTexture2D::1966744775550209789::1738957991::1738957991::1::::<><>::
-bullet.gd::GDScript::-1::1737748367::0::1::::<>Area2D<>::
+bullet.gd::GDScript::-1::1739227323::0::1::::<>Area2D<>::
 bullet.tscn::PackedScene::8386057803145073410::1738779802::0::1::::<><>::res://bullet.gd<>uid://dxe2pniv6kdn4::::res://weapons/bullets/fire_trail.png<>uid://bgn8fvhkjniwn::::res://weapons/bullets/fire.png
-chest.tscn::PackedScene::7090303640827596853::1739226097::0::1::::<><>::res://item.gd<>res://ItemHealing.gd<>uid://poruqosc7ay8::::res://pickups/chest/chest_bottom.png<>uid://w0omlm2d66nt::::res://pickups/chest/chest_top.png<>uid://c2woejhi871h1::::res://pickups/pickup.wav<>uid://be8lmb157qflx::::res://pickups/pickup_health.png
+chest.tscn::PackedScene::7090303640827596853::1739227995::0::1::::<><>::res://item.gd<>res://ItemHealing.gd<>uid://poruqosc7ay8::::res://pickups/chest/chest_bottom.png<>uid://w0omlm2d66nt::::res://pickups/chest/chest_top.png<>uid://c2woejhi871h1::::res://pickups/pickup.wav<>uid://be8lmb157qflx::::res://pickups/pickup_health.png
 default_bus_layout.tres::AudioBusLayout::-1::1734281699::0::1::::<><>::
-default_env.tres::Environment::3478342378168232311::1739226097::0::1::::<><>::
-game.tscn::PackedScene::3535985818002735207::1739226097::0::1::::<><>::uid://cu2rb5dl4ljte::::res://levels/rooms/room_a.tscn<>uid://wdey00p3syru::::res://levels/background/background_blue_sky.tscn<>res://levels/background/loop_clouds.tscn<>uid://2vfl30qvq3hm::::res://player.tscn<>uid://bspwo5vam5de::::res://mob.tscn<>uid://ci8su75x6odei::::res://pickup.tscn<>res://ItemHealing.gd<>uid://c2woejhi871h1::::res://pickups/pickup.wav<>uid://c8aujan3xl5un::::res://chest.tscn<>uid://be8lmb157qflx::::res://pickups/pickup_health.png<>uid://dgayuh42w4v6u::::res://levels/rooms/room_b.tscn<>uid://crkgfdw1y80hc::::res://levels/rooms/tilesets/tileset_bridges.tres<>uid://cq0mmphkbrvmm::::res://levels/rooms/room_c.tscn<>uid://diw0kp1e3livt::::res://levels/rooms/room_d.tscn
+default_env.tres::Environment::3478342378168232311::1739228002::0::1::::<><>::
+game.tscn::PackedScene::3535985818002735207::1739228002::0::1::::<><>::uid://cu2rb5dl4ljte::::res://levels/rooms/room_a.tscn<>uid://wdey00p3syru::::res://levels/background/background_blue_sky.tscn<>res://levels/background/loop_clouds.tscn<>uid://2vfl30qvq3hm::::res://player.tscn<>uid://bspwo5vam5de::::res://mob.tscn<>uid://c3fl3stluv0gn::::res://levels/bridges.tscn<>uid://ci8su75x6odei::::res://pickup.tscn<>res://ItemHealing.gd<>uid://c2woejhi871h1::::res://pickups/pickup.wav<>uid://c8aujan3xl5un::::res://chest.tscn<>uid://be8lmb157qflx::::res://pickups/pickup_health.png<>uid://dgayuh42w4v6u::::res://levels/rooms/room_b.tscn<>uid://cq0mmphkbrvmm::::res://levels/rooms/room_c.tscn<>uid://cuuvf1atjrxma::::res://mob2.tscn<>uid://diw0kp1e3livt::::res://levels/rooms/room_d.tscn<>uid://dlxjrgals3rg2::::res://levels/invisible_walls.tscn
 icon.png::CompressedTexture2D::3641366948845910627::1734281699::1736536958::1::::<><>::
 item.gd::GDScript::-1::1737747311::0::1::::Item<>Resource<>::
 ItemHealing.gd::GDScript::-1::1738781164::0::1::::ItemHealing<>Item<>::
-mob2.tscn::PackedScene::6219191147528764524::1739226983::0::1::::<><>::res://mob.gd<>uid://3ax8777nojij::::res://Adobe Express - file.png
+mob2.tscn::PackedScene::6219191147528764524::1739227995::0::1::::<><>::res://mob_2.gd<>uid://b7l86ayrjpy6d::::res://Adobe Express - file (1).png
 mob.gd::GDScript::-1::1738005343::0::1::::Mob<>CharacterBody2D<>::
-mob.tscn::PackedScene::108298468194197858::1739226097::0::1::::<><>::res://mob.gd<>uid://3ax8777nojij::::res://Adobe Express - file.png
+mob.tscn::PackedScene::108298468194197858::1739227995::0::1::::<><>::res://mob.gd<>uid://3ax8777nojij::::res://Adobe Express - file.png
+mob_2.gd::GDScript::-1::1739227222::0::1::::Mob2<>CharacterBody2D<>::
 pickup.gd::GDScript::-1::1739225193::0::1::::Pickup<>Area2D<>::
-pickup.tscn::PackedScene::5403606932300660188::1739226097::0::1::::<><>::res://pickup.gd<>uid://be8lmb157qflx::::res://pickups/pickup_health.png
+pickup.tscn::PackedScene::5403606932300660188::1739227995::0::1::::<><>::res://pickup.gd<>uid://be8lmb157qflx::::res://pickups/pickup_health.png
 player.gd::GDScript::-1::1738005384::0::1::::Player<>CharacterBody2D<>::
-player.tscn::PackedScene::1938775449788521594::1739226097::0::1::::<><>::res://player.gd<>uid://bw03btxpkxde4::::res://player/godot_bottom.png<>res://common/shadow.tscn<>res://sprite_2d.gd<>res://weapon_pivot.gd<>uid://bojuum4gq80it::::res://weapon.tscn<>uid://dekkcmj408pvt::::res://player/hand_fire.png
+player.tscn::PackedScene::1938775449788521594::1739227995::0::1::::<><>::res://player.gd<>uid://bw03btxpkxde4::::res://player/godot_bottom.png<>res://common/shadow.tscn<>res://sprite_2d.gd<>res://weapon_pivot.gd<>uid://bojuum4gq80it::::res://weapon.tscn<>uid://dekkcmj408pvt::::res://player/hand_fire.png
 sprite_2d.gd::GDScript::-1::1736538059::0::1::::<>Sprite2D<>::
 weapon.gd::GDScript::-1::1737143486::0::1::::Weapon<>Node2D<>::
 weapon.tscn::PackedScene::3388894625520369551::1738779802::0::1::::<><>::res://weapon.gd
@@ -154,9 +155,10 @@ flash.gdshader::Shader::-1::1734281699::0::1::::<><>::
 bop.wav::AudioStreamWAV::7184009298087079225::1734281699::1736536958::1::::<><>::
 laser.wav::AudioStreamWAV::4875905345462373132::1734281699::1736536958::1::::<><>::
 powerup.wav::AudioStreamWAV::1410117143611364637::1734281699::1736536958::1::::<><>::
-::res://levels/::1736364570
-bridges.tscn::PackedScene::6749169742470133317::1734281699::0::1::::<><>::uid://51k2u7iwra8e::::res://levels/rooms/tilesets/tileset_bridges.png
-invisible_walls.tscn::PackedScene::7979397146537380619::1734281699::0::1::::<><>::uid://cqb2wtrubw0n6::::res://levels/rooms/tilesets/tileset_invisible_walls.tres
+::res://levels/::1739384220
+bridges.tscn::PackedScene::6749169742470133317::1739227979::0::1::::<><>::uid://51k2u7iwra8e::::res://levels/rooms/tilesets/tileset_bridges.png
+invisible_walls.tscn::PackedScene::7979397146537380619::1739227993::0::1::::<><>::uid://cqb2wtrubw0n6::::res://levels/rooms/tilesets/tileset_invisible_walls.tres
+Zedd - Clarity (feat. Foxes).mp3::AudioStreamMP3::8012598298242129913::1739384220::1739384221::1::::<><>::
 ::res://levels/background/::1736536958
 background_blue_sky.gdshader::Shader::-1::1734281699::0::1::::<><>::
 background_blue_sky.tscn::PackedScene::1550634772747223718::1734281699::0::1::::<><>::uid://dbwguhyctscrg::::res://levels/background/far_island_1.png<>res://levels/background/background_blue_sky.gdshader<>uid://m6jil4hanvyn::::res://levels/background/island_3.png<>uid://bv1grb303mt6o::::res://levels/background/cloud_c.png<>res://levels/background/loop_clouds.tscn<>uid://blk27d6smpxqx::::res://levels/background/island_2.png<>uid://ck4a00lm1krmo::::res://levels/background/far_island_2.png
