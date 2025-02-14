@@ -10,6 +10,7 @@ var health := max_health: set = set_health
 const dash_speed = 2000
 var dashing = false
 var can_dash = true
+@onready var death_screen: PanelContainer = $"../CanvasLayer/DeathScreen"
 
 
 func _ready() -> void:
@@ -43,7 +44,10 @@ func set_health(new_health: int) -> void:
 		
 		
 func die() -> void:
-	queue_free()
+	death_screen.visible = true
+	get_tree().paused = true
+	if death_screen.visible == true:
+		queue_free()
 
 
 func _on_gong_body_entered(body: Node2D) -> void:
