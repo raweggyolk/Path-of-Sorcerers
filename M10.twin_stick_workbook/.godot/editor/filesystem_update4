@@ -11,3 +11,6 @@ res://end_screen.tscn
 res://death_scene.gd
 res://pickup.tscn
 res://weapon.tscn
+res://bullet.tscn
+res://weapon.gd
+res://bullet.gd

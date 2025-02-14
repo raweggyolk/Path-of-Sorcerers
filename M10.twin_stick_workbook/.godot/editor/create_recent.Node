@@ -1,14 +1,14 @@
-AudioStreamPlayer
+Timer
 AudioStreamPlayer2D
+AudioListener2D
+AudioStreamPlayer
 CollisionShape2D
 Area2D
 ColorRect
 CanvasLayer
 Sprite2D
 Node2D
-Timer
 Button
 Label
 VBoxContainer
 PanelContainer
-Node

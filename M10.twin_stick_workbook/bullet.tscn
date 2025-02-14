@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://drqje8x2l6mw5"]
+[gd_scene load_steps=6 format=3 uid="uid://drqje8x2l6mw5"]
 
 [ext_resource type="Script" path="res://bullet.gd" id="1_xac56"]
 [ext_resource type="Texture2D" uid="uid://dxe2pniv6kdn4" path="res://weapons/bullets/fire_trail.png" id="2_lhqth"]
 [ext_resource type="Texture2D" uid="uid://bgn8fvhkjniwn" path="res://weapons/bullets/fire.png" id="3_sloq8"]
+[ext_resource type="AudioStream" uid="uid://baatxna4415hc" path="res://bullets/hit_fire.wav" id="4_quwqf"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_hjtg2"]
 radius = 11.1803
@@ -19,5 +20,8 @@ texture = ExtResource("3_sloq8")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_hjtg2")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_quwqf")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

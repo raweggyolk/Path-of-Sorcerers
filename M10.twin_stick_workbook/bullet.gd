@@ -1,6 +1,7 @@
 extends Area2D
 
 @export var speed := 1000.0
+@export var hit_sound: AudioStreamPlayer2D = null
 
 var max_range := 1000.0
 var _travelled_distance := 0.0
@@ -33,8 +34,15 @@ func _physics_process(delta: float) -> void:
 	var direction := Vector2.RIGHT.rotated(rotation)
 	
 func _destroy() -> void:
-	queue_free()
+		queue_free()
 
 
 func _on_body_entered(body: Node2D) -> void:
-	_destroy()
+	if hit_sound != null:
+		hit_sound.play()
+		set_deferred("monitoring", false)
+		set_physics_process(false)
+		hide()
+		hit_sound.finished.connect(queue_free)
+	else:
+		_destroy()
