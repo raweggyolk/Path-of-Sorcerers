@@ -6,6 +6,8 @@ class_name Player extends CharacterBody2D
 var health := max_health: set = set_health
 @onready var _health_bar: ProgressBar = %HealthBar
 @onready var _collision_shape_2d: CollisionShape2D = %CollisionShape2D
+@onready var audio_stream_player: AudioStreamPlayer = %AudioStreamPlayer
+
 
 
 
@@ -33,3 +35,7 @@ func set_health(new_health: int) -> void:
 		
 func die() -> void:
 	queue_free()
+
+
+func _on_gong_body_entered(body: Node2D) -> void:
+	audio_stream_player.play()
